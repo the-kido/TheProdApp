@@ -7,10 +7,15 @@ using System.Threading.Tasks;
 public partial class SleepConsequences : Panel
 {
 	const int MINUTE_I_SHOULD_BE_SHUT_DOWN = (12 + 9) * 60 + 30;
-	[Export] Button shutDown, wait;
+	[Export] Button shutDown, letMeExplain, wait;
+	[Export] LineEdit edit1, edit2;
 
+	[Export] Panel explainPanel;
 	[Export] Window snoozeBarWindow;
 	[Export] AnimationPlayer snoozeBarAnimation;
+
+
+	[Export] Button explainPanelClose;
 
 	int[] snoozes = {5, 3, 2, 1, 1, 1, 1, 1}; // 15 minutes in total. If there's a serious problem, I would shut down the prod app instead of waiting for these timers!
 	int indexAt = 0;
@@ -19,6 +24,26 @@ public partial class SleepConsequences : Panel
 
 	public override void _Ready()
 	{
+		letMeExplain.Pressed += () =>
+		{
+			edit1.Text = "";
+			edit2.Text = "";
+			explainPanel.Visible = true;
+		};
+
+		explainPanelClose.Pressed += () =>
+		{
+			explainPanel.Visible = false;
+		};
+
+        void onLineEditChanged(string _)
+        {
+			wait.Disabled = string.IsNullOrEmpty(edit1.Text) || string.IsNullOrEmpty(edit2.Text);
+        };
+
+		edit1.TextChanged += onLineEditChanged;
+		edit2.TextChanged += onLineEditChanged;
+
 		wait.Pressed += async () =>
 		{
 			(GetParent() as Window).Visible = false;
@@ -44,18 +69,21 @@ public partial class SleepConsequences : Panel
 
     private void Prompt()
     {
+		explainPanel.Visible = false;
+
 		snoozeBarAnimation.Stop();
 		(GetParent() as Window).Visible = true;
 		snoozeBarWindow.Visible = false;
 
 		if (indexAt >= snoozes.Length)
 		{
+			letMeExplain.Disabled = true;
 			wait.Disabled = true;
 			return;
 		}
 
 		int snoozeMinutes = snoozes[indexAt];
-        wait.Text = $"Just give me {snoozeMinutes} minute{(snoozeMinutes == 1 ? "" : "s")}";
+        wait.Text = $"Give me {snoozeMinutes} minute{(snoozeMinutes == 1 ? "" : "s")}";
         snoozeTimeMs = snoozeMinutes * 60 * 1000;
 
         indexAt++;

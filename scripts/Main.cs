@@ -14,27 +14,35 @@ public partial class Main : Control {
 	AnimationPlayer animationPlayer;
 
 	// Called when the node enters the scene tree for the first time.
-	public override void _Ready() {
+	public override void _Ready()
+	{
 		GetTree().AutoAcceptQuit = false;
 		minimize.Pressed += PlayMinimizeAnimation;
 
 		FindChild("Main background").GetChild<AnimationPlayer>(0).Play("spin");
+
+		var screenSize = DisplayServer.ScreenGetSize();
+		GetWindow().Size = screenSize;
 	}
 
-	public override void _Process(double delta) {
+	public override void _Process(double delta)
+	{
 		if (Input.IsActionJustPressed("Escape")) PlayMinimizeAnimation();
 	}
 
-	private void PlayMinimizeAnimation() {
+	private void PlayMinimizeAnimation()
+	{
 		animationPlayer.Play("Minimize");
 		focused = false;
 	}
 
-	public static void Minimize() {
+	public static void Minimize()
+	{
 		DisplayServer.WindowSetMode(DisplayServer.WindowMode.Minimized);
 	}
 
-	private void temp() {
+	private void temp()
+	{
 		if (GetTree().Root.HasFocus() || !focused) {
 			animationPlayer.Play("Open");
 			focused = true;

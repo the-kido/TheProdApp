@@ -21,7 +21,7 @@ partial class ChromeTabDetector
 
     public ChromeTabDetector()
     {
-        server = new("ws://0.0.0.0:8080");
+        server = new("ws://0.0.0.0:8082");
 
         server.Start(
             connection => 

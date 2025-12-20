@@ -6,6 +6,6 @@ Basically, this is a mess. But it's my own, personal mess!
 "The Prod App"'s goal is to include tons of modular features you can turn on or off as you wish. Features include:
 - A website blocker, which holds you accountable for the sites you go onto (but shouldn't!)
 - A reminders to get to bed in time
-    - Grayscale, check-ins to keep you accountable, and more
+	- Grayscale, check-ins to keep you accountable, and more
 - An easily accessible list of healthier tasks you can draw from instead of doomscrolling.
 - And so much more!

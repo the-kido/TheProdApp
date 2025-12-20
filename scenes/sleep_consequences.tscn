@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cemxgk7s4e0lr"]
+[gd_scene load_steps=7 format=3 uid="uid://cemxgk7s4e0lr"]
 
 [ext_resource type="Theme" uid="uid://bg8sxkf0tmo0b" path="res://assets/MainMenu.tres" id="1_7ee6h"]
 [ext_resource type="Script" path="res://scenes/SleepConsequences.cs" id="2_olsfq"]
@@ -28,7 +28,18 @@ _data = {
 "test": SubResource("Animation_bqiah")
 }
 
-[node name="SleepConsequences" type="Panel" node_paths=PackedStringArray("shutDown", "wait")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r6elk"]
+bg_color = Color(0.093, 0.15, 0.13575, 0.980392)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[node name="SleepConsequences" type="Panel" node_paths=PackedStringArray("shutDown", "letMeExplain", "wait", "edit1", "edit2", "explainPanel", "snoozeBarAnimation", "explainPanelClose")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -37,7 +48,13 @@ grow_vertical = 2
 theme = ExtResource("1_7ee6h")
 script = ExtResource("2_olsfq")
 shutDown = NodePath("VBoxContainer/Shut down")
-wait = NodePath("VBoxContainer/Wait")
+letMeExplain = NodePath("VBoxContainer/Explain")
+wait = NodePath("Panel/Wait")
+edit1 = NodePath("Panel/LineEdit")
+edit2 = NodePath("Panel/LineEdit2")
+explainPanel = NodePath("Panel")
+snoozeBarAnimation = NodePath("VBoxContainer/AnimationPlayer")
+explainPanelClose = NodePath("Panel/Close")
 
 [node name="VBoxContainer" type="FlowContainer" parent="."]
 layout_mode = 1
@@ -71,15 +88,6 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
-[node name="Label2" type="Label" parent="VBoxContainer"]
-custom_minimum_size = Vector2(1073.19, 0)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.556219, 0.690678, 0.584743, 1)
-theme_override_font_sizes/font_size = 40
-text = "Make sure you give yourself the time to sleep earlier so you can do productive things in the morning!"
-horizontal_alignment = 1
-autowrap_mode = 2
-
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
 custom_minimum_size = Vector2(1500, 54.87)
 layout_mode = 2
@@ -89,13 +97,141 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 53
 text = "Alright, you can shut down my computer!"
 
-[node name="Wait" type="Button" parent="VBoxContainer"]
+[node name="Explain" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
-text = "Just give me {snoozeTime} minutes"
+text = "I might need a bit more time..."
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="VBoxContainer"]
 libraries = {
 "": SubResource("AnimationLibrary_sl4vg")
 }
 autoplay = "test"
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -679.0
+offset_top = -427.0
+offset_right = 679.0
+offset_bottom = 427.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_r6elk")
+
+[node name="Wait" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -408.0
+offset_top = -151.0
+offset_right = 408.0
+offset_bottom = -76.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 48
+text = "Just give me {snoozeTime} minutes"
+
+[node name="Context" type="Label" parent="Panel"]
+custom_minimum_size = Vector2(1073.19, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -536.595
+offset_top = 201.0
+offset_right = 536.595
+offset_bottom = 314.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.556219, 0.690678, 0.584743, 1)
+theme_override_font_sizes/font_size = 40
+text = "Make sure you give yourself the time to sleep earlier so you can do productive things in the morning!
+"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Close" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -88.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = 88.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 51
+text = "X"
+
+[node name="TextEdit2" type="TextEdit" parent="Panel"]
+visible = false
+custom_minimum_size = Vector2(700, 125)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -83.0
+offset_right = 350.0
+offset_bottom = 209.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -183.0
+offset_top = -332.0
+offset_right = 183.0
+offset_bottom = -268.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 46
+text = "Explain yourself!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="Panel"]
+layout_mode = 0
+offset_left = 657.0
+offset_top = 412.0
+offset_right = 866.0
+offset_bottom = 443.0
+
+[node name="LineEdit2" type="LineEdit" parent="Panel"]
+layout_mode = 0
+offset_left = 561.0
+offset_top = 516.0
+offset_right = 872.0
+offset_bottom = 547.0
+
+[node name="Label3" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 395.0
+offset_top = 414.0
+offset_right = 647.0
+offset_bottom = 440.0
+text = "I have to sleep later because:"
+
+[node name="Label4" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 394.0
+offset_top = 458.0
+offset_right = 901.0
+offset_bottom = 566.0
+text = "Do you understand working now will be less productive than working tomorrow, since I will endure more cognitive fatigue:"
+autowrap_mode = 2

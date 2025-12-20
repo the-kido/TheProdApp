@@ -1427,7 +1427,9 @@ initial_position = 1
 size = Vector2i(2000, 1300)
 visible = false
 unresizable = true
+borderless = true
 always_on_top = true
+extend_to_title = true
 
 [node name="SleepConsequences" parent="Sleep!/Consequeces" node_paths=PackedStringArray("snoozeBarWindow", "snoozeBarAnimation") instance=ExtResource("30_lnq04")]
 snoozeBarWindow = NodePath("../../Snooze Bar So I don\'t get Jumpscared")
