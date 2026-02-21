@@ -1,8 +1,8 @@
-[gd_scene load_steps=74 format=3 uid="uid://cgrhei5yvp5dj"]
+[gd_scene format=3 uid="uid://cgrhei5yvp5dj"]
 
 [ext_resource type="Texture2D" uid="uid://c3odne562pk0a" path="res://assets/background.png" id="1_fgmo7"]
 [ext_resource type="Theme" uid="uid://bg8sxkf0tmo0b" path="res://assets/MainMenu.tres" id="1_pdcsv"]
-[ext_resource type="Script" path="res://scripts/Main.cs" id="1_txb0g"]
+[ext_resource type="Script" uid="uid://egvsnxmnof10" path="res://scripts/Main.cs" id="1_txb0g"]
 [ext_resource type="Texture2D" uid="uid://dsfeq2oovdbae" path="res://assets/twinkle.png" id="3_o45xj"]
 [ext_resource type="PackedScene" uid="uid://bkgvqaxaa0nku" path="res://scenes/gas_animation.tscn" id="3_p2uf3"]
 [ext_resource type="PackedScene" uid="uid://cjsy1mrersesy" path="res://scenes/routine_check.tscn" id="7_lb3v0"]
@@ -13,20 +13,20 @@
 [ext_resource type="StyleBox" uid="uid://bewk8rbpxbaym" path="res://assets/dark_panel.tres" id="9_yh4i7"]
 [ext_resource type="PackedScene" uid="uid://dgsiu5bxxrmso" path="res://scenes/hourly_checkup_window.tscn" id="10_wjskc"]
 [ext_resource type="PackedScene" uid="uid://botrlvedgdb40" path="res://scenes/gallery.tscn" id="11_2wshd"]
-[ext_resource type="Script" path="res://scenes/Settings.cs" id="12_84nml"]
+[ext_resource type="Script" uid="uid://bd80btpadgq60" path="res://scenes/Settings.cs" id="12_84nml"]
 [ext_resource type="PackedScene" uid="uid://581g53n48oh" path="res://scenes/notification.tscn" id="13_5yrco"]
-[ext_resource type="Script" path="res://scripts/Focus Mode/DraggableWindow.cs" id="16_ro2jh"]
+[ext_resource type="Script" uid="uid://cymbouwngw5mt" path="res://scripts/Focus Mode/DraggableWindow.cs" id="16_ro2jh"]
 [ext_resource type="PackedScene" uid="uid://ylvd6jbj0yfk" path="res://scenes/sleep_reminder.tscn" id="17_j5ifa"]
 [ext_resource type="PackedScene" uid="uid://cj7sqr2f0k56x" path="res://scenes/take_a_break.tscn" id="18_2j8ep"]
-[ext_resource type="Script" path="res://scenes/TakeABreak.cs" id="18_s6xs5"]
+[ext_resource type="Script" uid="uid://byjhctikhaoi7" path="res://scenes/TakeABreak.cs" id="18_s6xs5"]
 [ext_resource type="PackedScene" uid="uid://ch0gd7852i2e4" path="res://scenes/no_youtube.tscn" id="21_s4qdw"]
-[ext_resource type="Script" path="res://scenes/Follower.cs" id="22_mnjk7"]
+[ext_resource type="Script" uid="uid://coklk8cn00ctn" path="res://scenes/Follower.cs" id="22_mnjk7"]
 [ext_resource type="PackedScene" uid="uid://msfr2g3i6l3s" path="res://scenes/do_routine.tscn" id="22_tkxvv"]
 [ext_resource type="Texture2D" uid="uid://b74xoteupxltl" path="res://assets/arrow.png" id="23_jdvmd"]
-[ext_resource type="Script" path="res://scenes/TestSideMenu.cs" id="26_r2gfp"]
+[ext_resource type="Script" uid="uid://bvvwd3mmhbjiy" path="res://scenes/TestSideMenu.cs" id="26_r2gfp"]
 [ext_resource type="PackedScene" uid="uid://buxo2lar8bsyf" path="res://scenes/fancy_menu_poc.tscn" id="26_xwhsl"]
-[ext_resource type="Script" path="res://scenes/GrayscaleAtNight.cs" id="28_h34bu"]
-[ext_resource type="Script" path="res://scenes/BoredMenu.cs" id="28_vcdau"]
+[ext_resource type="Script" uid="uid://cbqlxbscritpp" path="res://scenes/GrayscaleAtNight.cs" id="28_h34bu"]
+[ext_resource type="Script" uid="uid://qd5c5x7etcbk" path="res://scenes/BoredMenu.cs" id="28_vcdau"]
 [ext_resource type="PackedScene" uid="uid://b35sf7hgkeye4" path="res://scenes/sleep_reminder_better.tscn" id="29_v8rru"]
 [ext_resource type="PackedScene" uid="uid://dmf55ew05u5xv" path="res://scenes/bored_menu.tscn" id="29_wrdhp"]
 [ext_resource type="PackedScene" uid="uid://cemxgk7s4e0lr" path="res://scenes/sleep_consequences.tscn" id="30_lnq04"]
@@ -153,8 +153,8 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nklnb"]
 _data = {
-"Minimize": SubResource("Animation_vxf55"),
-"Open": SubResource("Animation_wri2s")
+&"Minimize": SubResource("Animation_vxf55"),
+&"Open": SubResource("Animation_wri2s")
 }
 
 [sub_resource type="Gradient" id="Gradient_titnr"]
@@ -224,7 +224,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6ik1q"]
 _data = {
-"spin": SubResource("Animation_uwqve")
+&"spin": SubResource("Animation_uwqve")
 }
 
 [sub_resource type="Animation" id="Animation_5rp5v"]
@@ -324,9 +324,9 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_furii"]
 _data = {
-"RESET": SubResource("Animation_5rp5v"),
-"open": SubResource("Animation_7a0tl"),
-"reset": SubResource("Animation_oroq6")
+&"RESET": SubResource("Animation_5rp5v"),
+&"open": SubResource("Animation_7a0tl"),
+&"reset": SubResource("Animation_oroq6")
 }
 
 [sub_resource type="Animation" id="Animation_hohl7"]
@@ -361,8 +361,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xbaxw"]
 _data = {
-"RESET": SubResource("Animation_hohl7"),
-"bigify": SubResource("Animation_t5oau")
+&"RESET": SubResource("Animation_hohl7"),
+&"bigify": SubResource("Animation_t5oau")
 }
 
 [sub_resource type="Animation" id="Animation_1t82l"]
@@ -434,8 +434,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_r3hvp"]
 _data = {
-"RESET": SubResource("Animation_1t82l"),
-"fly": SubResource("Animation_tfnp1")
+&"RESET": SubResource("Animation_1t82l"),
+&"fly": SubResource("Animation_tfnp1")
 }
 
 [sub_resource type="Animation" id="Animation_gqoud"]
@@ -570,9 +570,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mp532"]
 _data = {
-"Open": SubResource("Animation_gqoud"),
-"RESET": SubResource("Animation_5opqc"),
-"move": SubResource("Animation_k6icn")
+&"Open": SubResource("Animation_gqoud"),
+&"RESET": SubResource("Animation_5opqc"),
+&"move": SubResource("Animation_k6icn")
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0vdch"]
@@ -719,9 +719,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fsm31"]
 _data = {
-"RESET": SubResource("Animation_cldii"),
-"open": SubResource("Animation_6hctg"),
-"reset_manually": SubResource("Animation_5ofcs")
+&"RESET": SubResource("Animation_cldii"),
+&"open": SubResource("Animation_6hctg"),
+&"reset_manually": SubResource("Animation_5ofcs")
 }
 
 [sub_resource type="Animation" id="Animation_xip17"]
@@ -821,9 +821,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jt5i6"]
 _data = {
-"Close": SubResource("Animation_xip17"),
-"Open": SubResource("Animation_f2sap"),
-"RESET": SubResource("Animation_s518c")
+&"Close": SubResource("Animation_xip17"),
+&"Open": SubResource("Animation_f2sap"),
+&"RESET": SubResource("Animation_s518c")
 }
 
 [sub_resource type="Animation" id="Animation_uw2gl"]
@@ -883,11 +883,11 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bh30x"]
 _data = {
-"RESET": SubResource("Animation_uw2gl"),
-"play": SubResource("Animation_ed76x")
+&"RESET": SubResource("Animation_uw2gl"),
+&"play": SubResource("Animation_ed76x")
 }
 
-[node name="Main" type="Control" node_paths=PackedStringArray("minimize", "animationPlayer")]
+[node name="Main" type="Control" unique_id=216494189 node_paths=PackedStringArray("minimize", "animationPlayer")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -900,12 +900,10 @@ script = ExtResource("1_txb0g")
 minimize = NodePath("Minimize Button")
 animationPlayer = NodePath("Open-Close Animation")
 
-[node name="Open-Close Animation" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_nklnb")
-}
+[node name="Open-Close Animation" type="AnimationPlayer" parent="." unique_id=49713868]
+libraries/ = SubResource("AnimationLibrary_nklnb")
 
-[node name="Ambience" type="Control" parent="."]
+[node name="Ambience" type="Control" parent="." unique_id=952437977]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -913,21 +911,21 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Animation" parent="Ambience" instance=ExtResource("3_p2uf3")]
+[node name="Animation" parent="Ambience" unique_id=61516014 instance=ExtResource("3_p2uf3")]
 visible = false
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="Ambience"]
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Ambience" unique_id=616996085]
 visible = false
 modulate = Color(1, 1, 0.901961, 0.431373)
 position = Vector2(1920, 1093)
 amount = 30
-process_material = SubResource("ParticleProcessMaterial_atcny")
 texture = ExtResource("3_o45xj")
 lifetime = 10.0
 speed_scale = 2.0
 explosiveness = 0.5
+process_material = SubResource("ParticleProcessMaterial_atcny")
 
-[node name="Fog" type="TextureRect" parent="Ambience"]
+[node name="Fog" type="TextureRect" parent="Ambience" unique_id=481175321]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -937,7 +935,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_kj3wq")
 
-[node name="Minimize Button" type="Button" parent="."]
+[node name="Minimize Button" type="Button" parent="." unique_id=527357565]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
@@ -948,12 +946,12 @@ offset_right = -40.0
 offset_bottom = 124.0
 grow_horizontal = 0
 theme_override_font_sizes/font_size = 61
-theme_override_styles/hover = SubResource("StyleBoxFlat_2ashe")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_2ashe")
 theme_override_styles/normal = SubResource("StyleBoxFlat_2ashe")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2ashe")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2ashe")
 text = "–"
 
-[node name="Main background" type="TextureRect" parent="."]
+[node name="Main background" type="TextureRect" parent="." unique_id=912705282]
 modulate = Color(0.576, 0.64, 0.599467, 1)
 texture_filter = 2
 layout_mode = 1
@@ -973,13 +971,11 @@ texture = ExtResource("1_fgmo7")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Main background"]
-libraries = {
-"": SubResource("AnimationLibrary_6ik1q")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Main background" unique_id=345881254]
+libraries/ = SubResource("AnimationLibrary_6ik1q")
 speed_scale = 0.05
 
-[node name="Focus Timer" parent="." instance=ExtResource("7_trlnb")]
+[node name="Focus Timer" parent="." unique_id=90417195 instance=ExtResource("7_trlnb")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -993,7 +989,7 @@ offset_bottom = -161.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Routine Check" parent="." instance=ExtResource("7_lb3v0")]
+[node name="Routine Check" parent="." unique_id=660288267 instance=ExtResource("7_lb3v0")]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -1010,7 +1006,7 @@ grow_vertical = 2
 enabled = true
 afternoonHour = 21
 
-[node name="Goals" parent="." instance=ExtResource("9_i1xnj")]
+[node name="Goals" parent="." unique_id=746297552 instance=ExtResource("9_i1xnj")]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -1025,7 +1021,7 @@ offset_bottom = -188.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Pomodoro" parent="." instance=ExtResource("9_26jp5")]
+[node name="Pomodoro" parent="." unique_id=1120733079 instance=ExtResource("9_26jp5")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1039,7 +1035,7 @@ offset_bottom = 256.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Things i can do" type="Panel" parent="."]
+[node name="Things i can do" type="Panel" parent="." unique_id=917109661]
 visible = false
 layout_mode = 0
 offset_left = 938.0
@@ -1047,7 +1043,7 @@ offset_top = 554.0
 offset_right = 1225.0
 offset_bottom = 890.0
 
-[node name="Header" type="Label" parent="Things i can do"]
+[node name="Header" type="Label" parent="Things i can do" unique_id=1854985886]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -1057,7 +1053,7 @@ text = "Things I can do"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Panel" type="Panel" parent="Things i can do"]
+[node name="Panel" type="Panel" parent="Things i can do" unique_id=473961190]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -1068,7 +1064,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = ExtResource("9_yh4i7")
 
-[node name="Ideas" type="RichTextLabel" parent="Things i can do/Panel"]
+[node name="Ideas" type="RichTextLabel" parent="Things i can do/Panel" unique_id=2018180452]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -1086,7 +1082,7 @@ Lazy around off your computer
 Exercise more
 [/ul]"
 
-[node name="Activity Ideas" parent="." instance=ExtResource("9_u8pnu")]
+[node name="Activity Ideas" parent="." unique_id=715690917 instance=ExtResource("9_u8pnu")]
 modulate = Color(0.64, 0.608, 0.608, 1)
 layout_mode = 1
 anchors_preset = 8
@@ -1102,17 +1098,18 @@ grow_horizontal = 2
 grow_vertical = 2
 tasks = Array[String](["Work on art", "Program", "Study", "Write", "Relax", "Turn your brain off", "Create something", "Go outside", "Don't watch youtube", "o(*^▽^*)┛"])
 
-[node name="Hourly Checkup" parent="." instance=ExtResource("10_wjskc")]
+[node name="Hourly Checkup" parent="." unique_id=873434359 instance=ExtResource("10_wjskc")]
 visible = false
 
-[node name="Gallary" parent="." instance=ExtResource("11_2wshd")]
+[node name="Gallary" parent="." unique_id=599398319 instance=ExtResource("11_2wshd")]
 visible = false
+layout_mode = 0
 offset_left = 1537.0
 offset_top = 377.0
 offset_right = 1577.0
 offset_bottom = 417.0
 
-[node name="Settings" type="Control" parent="." node_paths=PackedStringArray("routineReminder", "hourlyCheckup", "globalMinimizeButton", "notification", "animationPlayer", "settingsButton", "gallery", "showAnimations", "showGallery", "forceExit")]
+[node name="Settings" type="Control" parent="." unique_id=942082459 node_paths=PackedStringArray("routineReminder", "hourlyCheckup", "globalMinimizeButton", "notification", "animationPlayer", "settingsButton", "gallery", "showAnimations", "showGallery", "forceExit")]
 z_index = 10
 layout_mode = 1
 anchors_preset = 15
@@ -1138,12 +1135,10 @@ showAnimations = NodePath("Panel/Toggles VBox/Allow Reminders")
 showGallery = NodePath("Panel/Toggles VBox/Show Gallery")
 forceExit = NodePath("Panel/Force Exit")
 
-[node name="Settings Animations" type="AnimationPlayer" parent="Settings"]
-libraries = {
-"": SubResource("AnimationLibrary_furii")
-}
+[node name="Settings Animations" type="AnimationPlayer" parent="Settings" unique_id=428965569]
+libraries/ = SubResource("AnimationLibrary_furii")
 
-[node name="Panel" type="Panel" parent="Settings"]
+[node name="Panel" type="Panel" parent="Settings" unique_id=1197503961]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1151,7 +1146,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Force Exit" type="Button" parent="Settings/Panel"]
+[node name="Force Exit" type="Button" parent="Settings/Panel" unique_id=1197737157]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -1165,23 +1160,23 @@ grow_vertical = 0
 text = "Force 
 Exit"
 
-[node name="Toggles VBox" type="VBoxContainer" parent="Settings/Panel"]
+[node name="Toggles VBox" type="VBoxContainer" parent="Settings/Panel" unique_id=892428703]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(2, 2)
 
-[node name="Allow Reminders" type="CheckBox" parent="Settings/Panel/Toggles VBox"]
+[node name="Allow Reminders" type="CheckBox" parent="Settings/Panel/Toggles VBox" unique_id=1312414355]
 layout_mode = 2
 button_pressed = true
 text = "Allow Reminders"
 
-[node name="Show Gallery" type="CheckBox" parent="Settings/Panel/Toggles VBox"]
+[node name="Show Gallery" type="CheckBox" parent="Settings/Panel/Toggles VBox" unique_id=1484317404]
 visible = false
 layout_mode = 2
 text = "Show Gallery"
 
-[node name="Pivot" type="Control" parent="."]
+[node name="Pivot" type="Control" parent="." unique_id=1846951245]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -1193,7 +1188,7 @@ offset_top = -164.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="Open Settings" type="Button" parent="Pivot"]
+[node name="Open Settings" type="Button" parent="Pivot" unique_id=235782922]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -1206,13 +1201,13 @@ offset_right = 42.0
 offset_bottom = 42.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/hover = SubResource("StyleBoxFlat_2ashe")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_2ashe")
 theme_override_styles/normal = SubResource("StyleBoxFlat_2ashe")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2ashe")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2ashe")
 text = "Open
 Settings"
 
-[node name="Notification" type="Window" parent="."]
+[node name="Notification" type="Window" parent="." unique_id=12597380]
 transparent_bg = true
 position = Vector2i(1700, 910)
 size = Vector2i(200, 150)
@@ -1222,11 +1217,11 @@ borderless = true
 always_on_top = true
 transparent = true
 
-[node name="Notification" parent="Notification" instance=ExtResource("13_5yrco")]
+[node name="Notification" parent="Notification" unique_id=490960166 instance=ExtResource("13_5yrco")]
 offset_right = 0.0
 offset_bottom = 0.0
 
-[node name="Sleep Reminder" type="Window" parent="."]
+[node name="Sleep Reminder" type="Window" parent="." unique_id=403524093]
 auto_translate_mode = 1
 transparent_bg = true
 handle_input_locally = false
@@ -1239,15 +1234,13 @@ always_on_top = true
 transparent = true
 script = ExtResource("16_ro2jh")
 
-[node name="Control" parent="Sleep Reminder" node_paths=PackedStringArray("bigify") instance=ExtResource("17_j5ifa")]
+[node name="Control" parent="Sleep Reminder" unique_id=1722556874 node_paths=PackedStringArray("bigify") instance=ExtResource("17_j5ifa")]
 bigify = NodePath("../Scale up")
 
-[node name="Scale up" type="AnimationPlayer" parent="Sleep Reminder"]
-libraries = {
-"": SubResource("AnimationLibrary_xbaxw")
-}
+[node name="Scale up" type="AnimationPlayer" parent="Sleep Reminder" unique_id=1754253657]
+libraries/ = SubResource("AnimationLibrary_xbaxw")
 
-[node name="Take a Break" type="Window" parent="." node_paths=PackedStringArray("animationPlayer")]
+[node name="Take a Break" type="Window" parent="." unique_id=1219003044 node_paths=PackedStringArray("animationPlayer")]
 auto_translate_mode = 1
 transparent_bg = true
 handle_input_locally = false
@@ -1261,14 +1254,12 @@ transparent = true
 script = ExtResource("18_s6xs5")
 animationPlayer = NodePath("Hey Hey Hey")
 
-[node name="Control" parent="Take a Break" instance=ExtResource("18_2j8ep")]
+[node name="Control" parent="Take a Break" unique_id=740188699 instance=ExtResource("18_2j8ep")]
 
-[node name="Hey Hey Hey" type="AnimationPlayer" parent="Take a Break"]
-libraries = {
-"": SubResource("AnimationLibrary_r3hvp")
-}
+[node name="Hey Hey Hey" type="AnimationPlayer" parent="Take a Break" unique_id=738580535]
+libraries/ = SubResource("AnimationLibrary_r3hvp")
 
-[node name="Hey no youtube" type="Window" parent="."]
+[node name="Hey no youtube" type="Window" parent="." unique_id=1967387821]
 auto_translate_mode = 1
 transparent_bg = true
 handle_input_locally = false
@@ -1281,19 +1272,17 @@ borderless = true
 always_on_top = true
 transparent = true
 
-[node name="Movement Animation" type="AnimationPlayer" parent="Hey no youtube"]
+[node name="Movement Animation" type="AnimationPlayer" parent="Hey no youtube" unique_id=678040591]
 root_node = NodePath("../..")
-libraries = {
-"": SubResource("AnimationLibrary_mp532")
-}
+libraries/ = SubResource("AnimationLibrary_mp532")
 
-[node name="Control" parent="Hey no youtube" node_paths=PackedStringArray("movementAnimation") instance=ExtResource("21_s4qdw")]
+[node name="Control" parent="Hey no youtube" unique_id=1775317911 node_paths=PackedStringArray("movementAnimation") instance=ExtResource("21_s4qdw")]
 offset_right = 0.0
 offset_bottom = 0.0
 pivot_offset = Vector2(150, 150)
 movementAnimation = NodePath("../Movement Animation")
 
-[node name="Routine Do" type="Window" parent="."]
+[node name="Routine Do" type="Window" parent="." unique_id=1738600100]
 auto_translate_mode = 1
 transparent_bg = true
 handle_input_locally = false
@@ -1306,11 +1295,11 @@ always_on_top = true
 transparent = true
 script = ExtResource("16_ro2jh")
 
-[node name="Control" parent="Routine Do" instance=ExtResource("22_tkxvv")]
+[node name="Control" parent="Routine Do" unique_id=1423786818 instance=ExtResource("22_tkxvv")]
 offset_right = 0.0
 offset_bottom = 0.0
 
-[node name="Follower" type="Window" parent="." node_paths=PackedStringArray("followingWindow", "arrow")]
+[node name="Follower" type="Window" parent="." unique_id=309749842 node_paths=PackedStringArray("followingWindow", "arrow")]
 transparent_bg = true
 position = Vector2i(816, 91)
 size = Vector2i(162, 162)
@@ -1324,7 +1313,7 @@ script = ExtResource("22_mnjk7")
 followingWindow = NodePath("../Routine Do")
 arrow = NodePath("AnimatedSprite2D")
 
-[node name="ColorRect" type="ColorRect" parent="Follower"]
+[node name="ColorRect" type="ColorRect" parent="Follower" unique_id=1410650016]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
@@ -1333,13 +1322,13 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Follower"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Follower" unique_id=515068205]
 position = Vector2(78.59, 75.61)
 sprite_frames = SubResource("SpriteFrames_u8r07")
 autoplay = "default"
 frame_progress = 0.392192
 
-[node name="Emoji Menu" type="Node" parent="." node_paths=PackedStringArray("openAnimation", "panel", "window", "menuHitbox", "template", "container", "hSeparatorTemplate")]
+[node name="Emoji Menu" type="Node" parent="." unique_id=2119899809 node_paths=PackedStringArray("openAnimation", "panel", "window", "menuHitbox", "template", "container", "hSeparatorTemplate")]
 script = ExtResource("26_r2gfp")
 openAnimation = NodePath("Emoji Menu Animations")
 panel = NodePath("Window/Fancy Menu POC")
@@ -1350,19 +1339,18 @@ container = NodePath("Window/Fancy Menu POC/HFlowContainer")
 hSeparatorTemplate = NodePath("Window/Fancy Menu POC/HFlowContainer/Seperator")
 copypastes = Array[String](["¯\\_(ツ)_/¯", "〒▽〒", "ಠ_ಠ", "ಠಿ_ಠ", "sep", " 🤨 ", " 🥹 ", " ✨ ", " ✅ ", " 😐 ", " 💀", " ❌", "sep", "৻(˵ •̀ ᴗ - ˵ ) ✧", "(●'◡'●)", "( ͡° ͜ʖ ͡°)", "(¬`‸´¬)", "( •̀ ⤙ •́ )", "(˶ ¬`‸´¬ ˶) ", "(˵ •̀ ᴗ - ) 👍"])
 
-[node name="Emoji Menu Animations" type="AnimationPlayer" parent="Emoji Menu"]
-libraries = {
-"": SubResource("AnimationLibrary_fsm31")
-}
+[node name="Emoji Menu Animations" type="AnimationPlayer" parent="Emoji Menu" unique_id=451725157]
+libraries/ = SubResource("AnimationLibrary_fsm31")
 
-[node name="Menu Hitbox" type="Control" parent="Emoji Menu"]
+[node name="Menu Hitbox" type="Control" parent="Emoji Menu" unique_id=378438643]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 30.0
 offset_bottom = 2090.0
 
-[node name="Window" type="Window" parent="Emoji Menu"]
+[node name="Window" type="Window" parent="Emoji Menu" unique_id=2108479540]
 transparent_bg = true
+oversampling_override = 1.0
 size = Vector2i(590, 640)
 unresizable = true
 borderless = true
@@ -1371,10 +1359,10 @@ transparent = true
 unfocusable = true
 mouse_passthrough = true
 
-[node name="Fancy Menu POC" parent="Emoji Menu/Window" instance=ExtResource("26_xwhsl")]
+[node name="Fancy Menu POC" parent="Emoji Menu/Window" unique_id=756215166 instance=ExtResource("26_xwhsl")]
 theme = ExtResource("1_pdcsv")
 
-[node name="Bored Menu" type="Node" parent="." node_paths=PackedStringArray("boredMenu", "copyableHeader", "menuAnimations", "menuHitbox", "container", "menuWindow")]
+[node name="Bored Menu" type="Node" parent="." unique_id=2103765383 node_paths=PackedStringArray("boredMenu", "copyableHeader", "menuAnimations", "menuHitbox", "container", "menuWindow")]
 script = ExtResource("28_vcdau")
 ideas = Array[String](["*🏃Outside things!", "Go outside / take a 10 min walk", "*📂Organizing", "Clean up my stuff (desk, bag, binder, etc)", "Plan what tomorrow might look like", "Prepare for another task", "Clean up my area", "Clean my computer files", "Organize my Calendar and Todoist", "*😎 Fun", "Listen to relaxed music", "Listen to a Podcast", "Read a webtoon", "Message friends", "Take a nap", "*⚒️Productivity", "Finish some small / time burner tasks on Todoist", "Model / Draw something for fun."])
 boredMenu = NodePath("Bored Window/Bored Menu")
@@ -1384,20 +1372,19 @@ menuHitbox = NodePath("Bored Hitbox")
 container = NodePath("Bored Window/Bored Menu/HFlowContainer")
 menuWindow = NodePath("Bored Window")
 
-[node name="Bored Hitbox" type="Control" parent="Bored Menu"]
+[node name="Bored Hitbox" type="Control" parent="Bored Menu" unique_id=722694200]
 layout_mode = 3
 anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 5.0
 grow_vertical = 2
 
-[node name="Bored Animations" type="AnimationPlayer" parent="Bored Menu"]
-libraries = {
-"": SubResource("AnimationLibrary_jt5i6")
-}
+[node name="Bored Animations" type="AnimationPlayer" parent="Bored Menu" unique_id=1257634438]
+libraries/ = SubResource("AnimationLibrary_jt5i6")
 
-[node name="Bored Window" type="Window" parent="Bored Menu"]
+[node name="Bored Window" type="Window" parent="Bored Menu" unique_id=1830853313]
 transparent_bg = true
+oversampling_override = 1.0
 initial_position = 1
 size = Vector2i(750, 1500)
 unresizable = true
@@ -1405,24 +1392,27 @@ borderless = true
 always_on_top = true
 transparent = true
 
-[node name="Bored Menu" parent="Bored Menu/Bored Window" instance=ExtResource("29_wrdhp")]
+[node name="Bored Menu" parent="Bored Menu/Bored Window" unique_id=1429866165 instance=ExtResource("29_wrdhp")]
 offset_bottom = -1500.0
 
-[node name="Grayscale" type="Node" parent="."]
+[node name="CopyableHSeparator" parent="Bored Menu/Bored Window/Bored Menu" index="0"]
+layout_mode = 0
+
+[node name="Grayscale" type="Node" parent="." unique_id=1211283641]
 script = ExtResource("28_h34bu")
 
-[node name="Sleep!" type="Node" parent="."]
+[node name="Sleep!" type="Node" parent="." unique_id=866920910]
 
-[node name="Reminder" type="Window" parent="Sleep!"]
+[node name="Reminder" type="Window" parent="Sleep!" unique_id=1953076032]
 initial_position = 1
 size = Vector2i(900, 900)
 visible = false
 unresizable = true
 always_on_top = true
 
-[node name="SleepReminderBetter" parent="Sleep!/Reminder" instance=ExtResource("29_v8rru")]
+[node name="SleepReminderBetter" parent="Sleep!/Reminder" unique_id=1627528536 instance=ExtResource("29_v8rru")]
 
-[node name="Consequeces" type="Window" parent="Sleep!"]
+[node name="Consequeces" type="Window" parent="Sleep!" unique_id=1305232339]
 initial_position = 1
 size = Vector2i(2000, 1300)
 visible = false
@@ -1431,11 +1421,11 @@ borderless = true
 always_on_top = true
 extend_to_title = true
 
-[node name="SleepConsequences" parent="Sleep!/Consequeces" node_paths=PackedStringArray("snoozeBarWindow", "snoozeBarAnimation") instance=ExtResource("30_lnq04")]
+[node name="SleepConsequences" parent="Sleep!/Consequeces" unique_id=1440072781 node_paths=PackedStringArray("snoozeBarWindow", "snoozeBarAnimation") instance=ExtResource("30_lnq04")]
 snoozeBarWindow = NodePath("../../Snooze Bar So I don\'t get Jumpscared")
 snoozeBarAnimation = NodePath("../../Snooze Bar So I don\'t get Jumpscared/AnimationPlayer")
 
-[node name="Snooze Bar So I don\'t get Jumpscared" type="Window" parent="Sleep!"]
+[node name="Snooze Bar So I don\'t get Jumpscared" type="Window" parent="Sleep!" unique_id=352474326]
 transparent_bg = true
 position = Vector2i(1536, 12)
 size = Vector2i(768, 40)
@@ -1445,7 +1435,7 @@ borderless = true
 always_on_top = true
 transparent = true
 
-[node name="ProgressBar" type="ProgressBar" parent="Sleep!/Snooze Bar So I don\'t get Jumpscared"]
+[node name="ProgressBar" type="ProgressBar" parent="Sleep!/Snooze Bar So I don\'t get Jumpscared" unique_id=1603610425]
 self_modulate = Color(1, 1, 1, 0.545098)
 anchors_preset = 15
 anchor_right = 1.0
@@ -1456,7 +1446,7 @@ theme = ExtResource("1_pdcsv")
 value = 76.26
 show_percentage = false
 
-[node name="Explanation" type="Label" parent="Sleep!/Snooze Bar So I don\'t get Jumpscared/ProgressBar"]
+[node name="Explanation" type="Label" parent="Sleep!/Snooze Bar So I don\'t get Jumpscared/ProgressBar" unique_id=1757096149]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1471,10 +1461,8 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Prepare to go to sleep!"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Sleep!/Snooze Bar So I don\'t get Jumpscared"]
-libraries = {
-"": SubResource("AnimationLibrary_bh30x")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sleep!/Snooze Bar So I don\'t get Jumpscared" unique_id=1298490080]
+libraries/ = SubResource("AnimationLibrary_bh30x")
 
 [editable path="Ambience/Animation"]
 [editable path="Hourly Checkup"]
