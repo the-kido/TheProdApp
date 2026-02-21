@@ -29,6 +29,8 @@ public partial class RoutineReminder : Panel {
 	public void ToggleNotifications(bool toggle) => enabled = toggle;
 	
 	public override void _Ready() {
+		return;
+		
 		if (!routineLabel.ButtonPressed) Update();
 		if (DateTime.Now.TimeOfDay.Hours >= afternoonHour) UpdateToAfternoon();
 

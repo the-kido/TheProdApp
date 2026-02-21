@@ -1,5 +1,4 @@
 using Godot;
-using Microsoft.VisualBasic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -62,10 +61,10 @@ public partial class SleepReminderBetter : Panel
 		_ = Loop();
 	}
 
-	const int REMINDER_MINUTE = (12 + 8) * 60 + 30;
+	
 	private void Update()
 	{
-		if (DateAndTime.Now.Hour * 60 + DateAndTime.Now.Minute > REMINDER_MINUTE)
+		if (Times.IsWarnTime())
 		{
 			(GetParent() as Window).Visible = true;
 			stopEverything = true;

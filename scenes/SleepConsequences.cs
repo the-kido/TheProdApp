@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 public partial class SleepConsequences : Panel
 {
-	const int MINUTE_I_SHOULD_BE_SHUT_DOWN = (12 + 9) * 60 + 30;
 	[Export] Button shutDown, letMeExplain, wait;
 	[Export] LineEdit edit1, edit2;
 
@@ -94,7 +93,7 @@ public partial class SleepConsequences : Panel
 	{
 		if (timesUp) return;
 
-		if (DateAndTime.Now.Hour * 60 + DateAndTime.Now.Minute > MINUTE_I_SHOULD_BE_SHUT_DOWN)
+		if (Times.IsSleepingTime())
 		{
 			Prompt();
 			timesUp = true;

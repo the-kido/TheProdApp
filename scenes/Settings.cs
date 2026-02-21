@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Threading.Tasks;
 using Godot;
 
@@ -64,9 +65,35 @@ public partial class Settings : Control {
 				forceExit.Text = EXIT_WARNING;
 				break;
 			case 2:
-				GetTree().Quit();
+				if (Times.IsSleepingTime()) ShutDownDevice();
+				else GetTree().Quit();
 				return;
 		}
+	}
+
+	private static void ShutDownDevice()
+	{
+		string command;
+		string arguments;
+
+		// Detect OS and use appropriate shutdown command
+		if (OS.GetName() == "Windows")
+		{
+			command = "shutdown";
+			arguments = "/s /t 0";
+		}
+		else // Linux and other Unix-like systems
+		{
+			command = "shutdown";
+			arguments = "now";
+		}
+
+		var psi = new ProcessStartInfo(command, arguments)
+		{
+			CreateNoWindow = true,
+			UseShellExecute = false
+		};
+		Process.Start(psi);
 	}
 
 	private void ToggleShowAnimations(bool toggled) {

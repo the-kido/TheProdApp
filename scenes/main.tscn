@@ -1007,7 +1007,6 @@ offset_right = -226.0
 offset_bottom = -212.0
 grow_horizontal = 2
 grow_vertical = 2
-enabled = true
 afternoonHour = 21
 
 [node name="Goals" parent="." instance=ExtResource("9_i1xnj")]
@@ -1409,6 +1408,7 @@ transparent = true
 offset_bottom = -1500.0
 
 [node name="Grayscale" type="Node" parent="."]
+process_mode = 3
 script = ExtResource("28_h34bu")
 
 [node name="Sleep!" type="Node" parent="."]
@@ -1421,10 +1421,12 @@ unresizable = true
 always_on_top = true
 
 [node name="SleepReminderBetter" parent="Sleep!/Reminder" instance=ExtResource("29_v8rru")]
+process_mode = 3
 
 [node name="Consequeces" type="Window" parent="Sleep!"]
+mode = 3
 initial_position = 1
-size = Vector2i(2000, 1300)
+size = Vector2i(1845, 985)
 visible = false
 unresizable = true
 borderless = true
@@ -1432,6 +1434,7 @@ always_on_top = true
 extend_to_title = true
 
 [node name="SleepConsequences" parent="Sleep!/Consequeces" node_paths=PackedStringArray("snoozeBarWindow", "snoozeBarAnimation") instance=ExtResource("30_lnq04")]
+process_mode = 3
 snoozeBarWindow = NodePath("../../Snooze Bar So I don\'t get Jumpscared")
 snoozeBarAnimation = NodePath("../../Snooze Bar So I don\'t get Jumpscared/AnimationPlayer")
 
