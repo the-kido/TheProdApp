@@ -1,3 +1,5 @@
 .godot/
 
 Prod.csproj.old*
+
+export_presets.cfg
