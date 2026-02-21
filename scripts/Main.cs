@@ -23,6 +23,8 @@ public partial class Main : Control {
 
 		var screenSize = DisplayServer.ScreenGetSize();
 		GetWindow().Size = screenSize;
+		PivotOffset = screenSize / 2;
+		GetWindow().Mode = Window.ModeEnum.Maximized;
 	}
 
 	public override void _Process(double delta)
