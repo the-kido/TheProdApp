@@ -64,7 +64,7 @@ public partial class HeyNoYoutube : Control
 
 	public override async void _Ready() {
 		parent = GetParent<Window>();
-		InitMovePoints();
+		
 
 		ChooseNewText();
 		
@@ -90,6 +90,9 @@ public partial class HeyNoYoutube : Control
 			angryAnimation.Stop();
 			warnIsPlaying = false;
 		};
+
+		await Task.Delay(1000); // Just to be safe vs. Main.cs which changes main window size
+		InitMovePoints();
 	}
 
 	double timeSpent = 0;
