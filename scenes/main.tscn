@@ -1396,6 +1396,10 @@ offset_bottom = -1500.0
 
 [node name="CopyableHSeparator" parent="Bored Menu/Bored Window/Bored Menu" index="0"]
 layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 600.0
+offset_bottom = 60.0
 
 [node name="Grayscale" type="Node" parent="." unique_id=1211283641]
 script = ExtResource("28_h34bu")
@@ -1403,6 +1407,7 @@ script = ExtResource("28_h34bu")
 [node name="Sleep!" type="Node" parent="." unique_id=866920910]
 
 [node name="Reminder" type="Window" parent="Sleep!" unique_id=1953076032]
+oversampling_override = 1.0
 initial_position = 1
 size = Vector2i(900, 900)
 visible = false
@@ -1412,6 +1417,7 @@ always_on_top = true
 [node name="SleepReminderBetter" parent="Sleep!/Reminder" unique_id=1627528536 instance=ExtResource("29_v8rru")]
 
 [node name="Consequeces" type="Window" parent="Sleep!" unique_id=1305232339]
+oversampling_override = 1.0
 initial_position = 1
 size = Vector2i(1845, 985)
 visible = false
@@ -1426,6 +1432,7 @@ snoozeBarAnimation = NodePath("../../Snooze Bar So I don\'t get Jumpscared/Anima
 
 [node name="Snooze Bar So I don\'t get Jumpscared" type="Window" parent="Sleep!" unique_id=352474326]
 transparent_bg = true
+oversampling_override = 1.0
 position = Vector2i(1536, 12)
 size = Vector2i(768, 40)
 visible = false

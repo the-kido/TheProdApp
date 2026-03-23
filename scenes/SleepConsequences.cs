@@ -1,11 +1,11 @@
 using Godot;
-using Microsoft.VisualBasic;
 using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
 
 public partial class SleepConsequences : Panel
 {
+	[Export] Label timeText;
 	[Export] Button shutDown, letMeExplain, wait;
 	[Export] LineEdit edit1, edit2;
 
@@ -64,11 +64,15 @@ public partial class SleepConsequences : Panel
 			};
 			Process.Start(psi);
 		};
+
+		Prompt();
 	}
 
     private void Prompt()
     {
 		explainPanel.Visible = false;
+
+		timeText.Text = $"It's [shake]{DateTime.Now.ToString("h:mm").ToLowerInvariant()}[/shake]!";
 
 		snoozeBarAnimation.Stop();
 		(GetParent() as Window).Visible = true;
