@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 public partial class SleepConsequences : Panel
 {
-	[Export] Label timeText;
+	[Export] RichTextLabel timeText;
 	[Export] Button shutDown, letMeExplain, wait;
 	[Export] LineEdit edit1, edit2;
 
@@ -64,8 +64,6 @@ public partial class SleepConsequences : Panel
 			};
 			Process.Start(psi);
 		};
-
-		Prompt();
 	}
 
     private void Prompt()
