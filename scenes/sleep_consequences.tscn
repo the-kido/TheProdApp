@@ -39,7 +39,7 @@ corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 
-[node name="SleepConsequences" type="Panel" unique_id=46692840 node_paths=PackedStringArray("timeText", "shutDown", "letMeExplain", "wait", "edit1", "edit2", "explainPanel", "snoozeBarAnimation", "explainPanelClose")]
+[node name="SleepConsequences" type="Panel" unique_id=46692840 node_paths=PackedStringArray("timeText", "shutDown", "letMeExplain", "wait", "edit1", "edit2", "explainPanel", "snoozeBarAnimation", "forceShutDownLabel", "explainPanelClose")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -55,6 +55,7 @@ edit1 = NodePath("Panel/LineEdit")
 edit2 = NodePath("Panel/LineEdit2")
 explainPanel = NodePath("Panel")
 snoozeBarAnimation = NodePath("VBoxContainer/AnimationPlayer")
+forceShutDownLabel = NodePath("VBoxContainer/Force Shut Down Text")
 explainPanelClose = NodePath("Panel/Close")
 
 [node name="VBoxContainer" type="FlowContainer" parent="." unique_id=1737798906]
@@ -101,6 +102,15 @@ text = "[shake][rainbow freq=3 sat=0.9 val=3][tornado radius=10.0 freq=10.0 conn
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
+
+[node name="Force Shut Down Text" type="RichTextLabel" parent="VBoxContainer" unique_id=1899134675]
+custom_minimum_size = Vector2(900, 0)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[color=9fa7a4]  Your computer will [color=#ffafaf]force shut down[/color] at [color=white]9:00 "
+fit_content = true
+horizontal_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer" unique_id=1008979151]
 custom_minimum_size = Vector2(1500, 54.87)

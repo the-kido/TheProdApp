@@ -1,4 +1,5 @@
 using Godot;
+using Microsoft.VisualBasic;
 using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ public partial class SleepConsequences : Panel
 	[Export] Panel explainPanel;
 	[Export] Window snoozeBarWindow;
 	[Export] AnimationPlayer snoozeBarAnimation;
+	[Export] RichTextLabel forceShutDownLabel;
 
 
 	[Export] Button explainPanelClose;
@@ -20,6 +22,8 @@ public partial class SleepConsequences : Panel
 	int indexAt = 0;
 
 	int snoozeTimeMs;
+
+    static string GetForceShutDownText() => SleepReminderBetter.ABSOLUTE_MAX_MIN is not null ? $"[color=9fa7a4]  Your computer will [color=#ffafaf]force shut down[/color] at [color=white]{Times.MinuteTo24Hours(SleepReminderBetter.ABSOLUTE_MAX_MIN ?? 0)}" : "";
 
 	public override void _Ready()
 	{
@@ -55,15 +59,17 @@ public partial class SleepConsequences : Panel
 			Prompt();
 		};
 
-		shutDown.Pressed += () =>
-		{
-			var psi = new ProcessStartInfo("shutdown", "/s /t 0")
+		shutDown.Pressed += ShutdownWindows;
+	}
+
+	static void ShutdownWindows()
+	{
+		var psi = new ProcessStartInfo("shutdown", "/s /t 0")
 			{
 				CreateNoWindow = true,
 				UseShellExecute = false
 			};
 			Process.Start(psi);
-		};
 	}
 
     private void Prompt()
@@ -71,6 +77,7 @@ public partial class SleepConsequences : Panel
 		explainPanel.Visible = false;
 
 		timeText.Text = $"It's [shake]{DateTime.Now.ToString("h:mm").ToLowerInvariant()}[/shake]!";
+		forceShutDownLabel.Text = GetForceShutDownText();
 
 		snoozeBarAnimation.Stop();
 		(GetParent() as Window).Visible = true;
@@ -93,6 +100,12 @@ public partial class SleepConsequences : Panel
     bool timesUp = false;
 	public override void _Process(double delta)
 	{
+		if (Times.IsAbsoluteSleepTime())
+		{
+			ShutdownWindows();
+			ProcessMode = ProcessModeEnum.Disabled; // So it doesn't spam and destroy everything...
+		}
+		
 		if (timesUp) return;
 
 		if (Times.IsSleepingTime())

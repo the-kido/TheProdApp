@@ -1,7 +1,7 @@
 using Godot;
 
 public partial class Main : Control {
-
+	public const bool DEBUG = false;
 	Main() => Instance = this;
 	
 	public static Main Instance {get; private set;}

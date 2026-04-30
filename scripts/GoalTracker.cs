@@ -26,7 +26,7 @@ public partial class GoalTracker : Panel {
 	AudioStreamPlayer2D goalCompletedAudioPlayer;
 
 	const string SAVE_FILE_LOCATION = "user://goals.json";
-	static Dictionary<string, Array<string>> data = new(); // Key is day, Value is goals
+	static Dictionary<string, Array<string>> data = []; // Key is day, Value is goals
 
 	
 	static private void UpdateCheckBox(CheckBox checkBox, string goal) => checkBox.Text = $"{goalDescription[goal]} ({GetStreak(goal)})"; 
@@ -34,6 +34,8 @@ public partial class GoalTracker : Panel {
     static string DateToString(DateTime dateTime) => $"{dateTime.Day}/{dateTime.Month}/{dateTime.Year}";
 
 	public override void _Ready() {
+		return;
+
 		data = GetData();
         AddTodayToStreak();
 
