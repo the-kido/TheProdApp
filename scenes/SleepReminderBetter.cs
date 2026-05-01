@@ -84,8 +84,6 @@ public partial class SleepReminderBetter : Panel
 		};
 
         _ = Loop();
-
-		(GetParent() as Window).Visible = true;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
