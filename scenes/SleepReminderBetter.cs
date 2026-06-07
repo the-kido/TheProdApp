@@ -8,6 +8,7 @@ public partial class SleepReminderBetter : Panel
 	[Export] TextEdit reason;
 	[Export] Button finish;
 	[Export] LineEdit absoluteShutdownTime;
+	[Export] Label friendlyTimeText;
 
 	const string PLACEHOLDER_WHY_NOT = "Why not!? Are you sure?";
 	const string PLACEHOLDER_WHATCHA_DOING = "Great! What will you be doing?";
@@ -22,6 +23,7 @@ public partial class SleepReminderBetter : Panel
 
 	void UpdateFinishButton() => finish.Disabled = !(step1 && step2);
 
+	int possibleNewTime;
 	public override void _Ready()
 	{
 		Button[] arr = [buttonGood, buttonGreat, buttonBad];
@@ -55,6 +57,7 @@ public partial class SleepReminderBetter : Panel
 
 		finish.Pressed += () =>
 		{
+			ABSOLUTE_MAX_MIN = possibleNewTime;
 			(GetParent() as Window).Visible = false;
 		};
 
@@ -64,6 +67,7 @@ public partial class SleepReminderBetter : Panel
 			if (string.IsNullOrWhiteSpace(newString) || !MyRegex().IsMatch(newString))
 			{
 				step2 = false;
+				friendlyTimeText.Text = "⏰[Invalid]";
 				UpdateFinishButton();
 				return;
 			}
@@ -72,18 +76,22 @@ public partial class SleepReminderBetter : Panel
 			if (!int.TryParse(parts[0], out int hh) || !int.TryParse(parts[1], out int mm))
 			{
 				step2 = false;
+				friendlyTimeText.Text = "⏰[Invalid]";
 				UpdateFinishButton();
 				return;
 			}
 
 			int mins = hh * 60 + mm;
-			ABSOLUTE_MAX_MIN = mins;
+			possibleNewTime = mins;
 
-			step2 =  mins > Times.MINUTE_I_SHOULD_BE_SHUT_DOWN;
+			step2 = mins >= Times.MINUTE_I_SHOULD_BE_SHUT_DOWN;
+			
+			friendlyTimeText.Text = step2 ? $"⏰{mins / 60 % 12}:{mins % 60:D2} {(mins > 60 * 12 ? "PM": "AM")}" : friendlyTimeText.Text = "⏰[Invalid]";
 			UpdateFinishButton();
 		};
 
         _ = Loop();
+		(GetParent() as Window).Visible = true;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

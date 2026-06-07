@@ -32,7 +32,7 @@ public partial class HeyNoYoutube : Control
 	{
 		int x = GetTree().Root.Size.X;
 		int y = GetTree().Root.Size.Y;
-		
+
 		int windowX = parent.Size.X, windowY = parent.Size.Y;
 
 		left = new(30, y/2 - windowY / 2);
@@ -45,9 +45,6 @@ public partial class HeyNoYoutube : Control
 	
 	private void Associate(Button button, Vector2 direction) {
 		button.Pressed += () => {
-			// parent.Position = direction;
-			// idk why this isn't working :( 
-
 			var anim = movementAnimation.GetAnimation("move");
 			
 			anim.TrackSetKeyValue(0, 0, (Vector2) parent.Position);
@@ -64,15 +61,9 @@ public partial class HeyNoYoutube : Control
 
 	public override async void _Ready() {
 		parent = GetParent<Window>();
-		
+
 
 		ChooseNewText();
-		
-		
-		Associate(btnLeft, left);
-		Associate(btnRight, right);
-		Associate(btnUp, up);
-		Associate(btnDown, down);
 
 		// detector = new();
 		GD.Print(detector.OnYoutube);
@@ -93,6 +84,11 @@ public partial class HeyNoYoutube : Control
 
 		await Task.Delay(1000); // Just to be safe vs. Main.cs which changes main window size
 		InitMovePoints();
+		
+		Associate(btnLeft, left);
+		Associate(btnRight, right);
+		Associate(btnUp, up);
+		Associate(btnDown, down);
 	}
 
 	double timeSpent = 0;

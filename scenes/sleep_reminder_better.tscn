@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://bg8sxkf0tmo0b" path="res://assets/MainMenu.tres" id="1_yevdi"]
 [ext_resource type="Script" uid="uid://8q3cyv7ct2al" path="res://scenes/SleepReminderBetter.cs" id="2_v81nv"]
 
-[node name="SleepReminderBetter" type="Panel" unique_id=1488614189 node_paths=PackedStringArray("buttonGood", "buttonGreat", "buttonBad", "reason", "finish", "absoluteShutdownTime")]
+[node name="SleepReminderBetter" type="Panel" unique_id=1488614189 node_paths=PackedStringArray("buttonGood", "buttonGreat", "buttonBad", "reason", "finish", "absoluteShutdownTime", "friendlyTimeText")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -17,6 +17,7 @@ buttonBad = NodePath("VBoxContainer/HBoxContainer/Bad")
 reason = NodePath("VBoxContainer/TextEdit")
 finish = NodePath("Done")
 absoluteShutdownTime = NodePath("VBoxContainer/Label4/Time")
+friendlyTimeText = NodePath("VBoxContainer/Label4/Time/Friendly Time Text")
 
 [node name="Done" type="Button" parent="." unique_id=2081137693]
 custom_minimum_size = Vector2(155.275, 0)
@@ -113,3 +114,14 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "20:??"
 alignment = 1
+
+[node name="Friendly Time Text" type="Label" parent="VBoxContainer/Label4/Time" unique_id=1382207552]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 32.0
+offset_right = 20.0
+offset_bottom = 26.0
+grow_horizontal = 2
