@@ -3,7 +3,7 @@ using Microsoft.VisualBasic;
 public static class Times
 {
     public const int REMINDER_MINUTE = !Main.DEBUG ? (12 + 8) * 60 : 9 * 60;
-    public const int MINUTE_I_SHOULD_BE_SHUT_DOWN = !Main.DEBUG ? (12 + 8) * 60 + 30 : 9 * 60 + 1;
+    public const int MINUTE_I_SHOULD_BE_SHUT_DOWN = !Main.DEBUG ? (12 + 9) * 60 + 30 : 9 * 60 + 1;
 
     public static string MinuteTo24Hours(int minute) => $"{minute / 60 % 24}:{minute % 60}";
     
