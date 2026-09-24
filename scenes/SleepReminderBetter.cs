@@ -5,10 +5,11 @@ using System.Threading.Tasks;
 public partial class SleepReminderBetter : Panel
 {
 	[Export] Button buttonGood, buttonGreat, buttonBad;
-	[Export] TextEdit reason;
+	
 	[Export] Button finish;
-	[Export] LineEdit absoluteShutdownTime;
-	[Export] Label friendlyTimeText;
+	[Export] LineEdit sleepTime;
+	[Export] SpinBox minsBeforeShutdown;
+	[Export] Label friendlySleepTimeText, friendlyShutdownText;
 
 	const string PLACEHOLDER_WHY_NOT = "Why not!? Are you sure?";
 	const string PLACEHOLDER_WHATCHA_DOING = "Great! What will you be doing?";
@@ -18,12 +19,14 @@ public partial class SleepReminderBetter : Panel
 	// Called when the node enters the scene tree for the first time.
 	Color gray = new("ffffff30");
 
-	bool step1 = false;
-	bool step2 = false;
+	bool step1 = false; // Sleep time is set
+	bool step2 = false; // Mins b4 sleep time is set
 
 	void UpdateFinishButton() => finish.Disabled = !(step1 && step2);
 
-	int possibleNewTime;
+	int possibleSleepTimeTime, possibleShutDownTime;
+
+	static string GetTimerTime (int mins) => $"⏰{mins / 60 % 12}:{mins % 60:D2} {(mins > 60 * 12 ? "PM": "AM")}";
 	public override void _Ready()
 	{
 		Button[] arr = [buttonGood, buttonGreat, buttonBad];
@@ -43,31 +46,31 @@ public partial class SleepReminderBetter : Panel
 				}
 				else
 				{
-					reason.Visible = true;
-					reason.PlaceholderText = button.Name == buttonGood.Name ? PLACEHOLDER_WHATCHA_DOING : PLACEHOLDER_WHY_NOT;
+					// reason.Visible = true;
+					// reason.PlaceholderText = button.Name == buttonGood.Name ? PLACEHOLDER_WHATCHA_DOING : PLACEHOLDER_WHY_NOT;
                 }
 			};
 		}
 
-		reason.TextChanged += () =>
-		{
-			step1 = true;
-			UpdateFinishButton();
-		};
+		// reason.TextChanged += () =>
+		// {
+		// 	step1 = true;
+		// 	UpdateFinishButton();
+		// };
 
 		finish.Pressed += () =>
 		{
-			ABSOLUTE_MAX_MIN = possibleNewTime;
+			ABSOLUTE_MAX_MIN = possibleShutDownTime;
 			(GetParent() as Window).Visible = false;
 		};
 
-		absoluteShutdownTime.TextChanged += newString =>
+		sleepTime.TextChanged += newString =>
         {
 			// Expect format HH:mm (24-hour). Validate and ensure it's a future time today.
 			if (string.IsNullOrWhiteSpace(newString) || !MyRegex().IsMatch(newString))
 			{
-				step2 = false;
-				friendlyTimeText.Text = "⏰[Invalid]";
+				step1 = false;
+				friendlySleepTimeText.Text = "⏰[Invalid]";
 				UpdateFinishButton();
 				return;
 			}
@@ -75,18 +78,28 @@ public partial class SleepReminderBetter : Panel
 			var parts = newString.Split(':');
 			if (!int.TryParse(parts[0], out int hh) || !int.TryParse(parts[1], out int mm))
 			{
-				step2 = false;
-				friendlyTimeText.Text = "⏰[Invalid]";
+				step1 = false;
+				friendlySleepTimeText.Text = "⏰[Invalid]";
 				UpdateFinishButton();
 				return;
 			}
 
 			int mins = hh * 60 + mm;
-			possibleNewTime = mins;
+			possibleSleepTimeTime = mins;
 
-			step2 = mins >= Times.MINUTE_I_SHOULD_BE_SHUT_DOWN;
+			step1 = mins >= Times.MINUTE_I_SHOULD_BE_SHUT_DOWN - 60;
 			
-			friendlyTimeText.Text = step2 ? $"⏰{mins / 60 % 12}:{mins % 60:D2} {(mins > 60 * 12 ? "PM": "AM")}" : friendlyTimeText.Text = "⏰[Invalid]";
+			friendlySleepTimeText.Text = step1 ? $"Sleep at {GetTimerTime(mins)}" : friendlySleepTimeText.Text = "⏰[Invalid]";
+			UpdateFinishButton();
+		};
+
+		minsBeforeShutdown.ValueChanged += newMins =>
+		{
+			step2 = true;
+			int shutDownMin = possibleSleepTimeTime - (int) newMins;
+			possibleShutDownTime = shutDownMin;
+
+			friendlyShutdownText.Text = step2 ? $"Shut down at {GetTimerTime(shutDownMin)}" : "Invalid shut down time";
 			UpdateFinishButton();
 		};
 
