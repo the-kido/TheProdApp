@@ -1098,6 +1098,7 @@ grow_vertical = 2
 tasks = Array[String](["Work on art", "Program", "Study", "Write", "Relax", "Turn your brain off", "Create something", "Go outside", "Don't watch youtube", "o(*^▽^*)┛"])
 
 [node name="Hourly Checkup" parent="." unique_id=873434359 instance=ExtResource("10_wjskc")]
+oversampling_override = 1.0
 visible = false
 
 [node name="Gallary" parent="." unique_id=599398319 instance=ExtResource("11_2wshd")]
@@ -1208,6 +1209,7 @@ Settings"
 
 [node name="Notification" type="Window" parent="." unique_id=12597380]
 transparent_bg = true
+oversampling_override = 1.0
 position = Vector2i(1700, 910)
 size = Vector2i(200, 150)
 visible = false
@@ -1412,6 +1414,7 @@ script = ExtResource("28_h34bu")
 [node name="Sleep!" type="Node" parent="." unique_id=866920910]
 
 [node name="Reminder" type="Window" parent="Sleep!" unique_id=1953076032]
+process_mode = 3
 oversampling_override = 1.0
 initial_position = 1
 size = Vector2i(900, 900)
@@ -1420,6 +1423,7 @@ unresizable = true
 always_on_top = true
 
 [node name="SleepReminderBetter" parent="Sleep!/Reminder" unique_id=1627528536 instance=ExtResource("29_v8rru")]
+process_mode = 3
 
 [node name="Consequeces" type="Window" parent="Sleep!" unique_id=1305232339]
 oversampling_override = 1.0

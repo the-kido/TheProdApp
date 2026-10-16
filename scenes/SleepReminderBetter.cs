@@ -7,8 +7,8 @@ public partial class SleepReminderBetter : Panel
 	[Export] Button buttonGood, buttonGreat, buttonBad;
 	
 	[Export] Button finish;
-	[Export] LineEdit sleepTime;
-	[Export] SpinBox minsBeforeShutdown;
+	// [Export] LineEdit sleepTime;
+	// [Export] SpinBox minsBeforeShutdown;
 	[Export] Label friendlySleepTimeText, friendlyShutdownText;
 
 	const string PLACEHOLDER_WHY_NOT = "Why not!? Are you sure?";
@@ -64,7 +64,7 @@ public partial class SleepReminderBetter : Panel
 			(GetParent() as Window).Visible = false;
 		};
 
-		sleepTime.TextChanged += newString =>
+		GetNode<LineEdit>("VBoxContainer/VBoxContainer/Time").TextChanged += newString =>
         {
 			// Expect format HH:mm (24-hour). Validate and ensure it's a future time today.
 			if (string.IsNullOrWhiteSpace(newString) || !MyRegex().IsMatch(newString))
@@ -93,7 +93,7 @@ public partial class SleepReminderBetter : Panel
 			UpdateFinishButton();
 		};
 
-		minsBeforeShutdown.ValueChanged += newMins =>
+		GetNode<SpinBox>("VBoxContainer/VBoxContainer2/Time").ValueChanged += newMins =>
 		{
 			step2 = true;
 			int shutDownMin = possibleSleepTimeTime - (int) newMins;
