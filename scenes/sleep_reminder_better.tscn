@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://bg8sxkf0tmo0b" path="res://assets/MainMenu.tres" id="1_yevdi"]
 [ext_resource type="Script" uid="uid://8q3cyv7ct2al" path="res://scenes/SleepReminderBetter.cs" id="2_v81nv"]
 
-[node name="SleepReminderBetter" type="Panel" unique_id=1488614189 node_paths=PackedStringArray("buttonGood", "buttonGreat", "buttonBad", "finish", "sleepTime", "minsBeforeShutdown", "friendlySleepTimeText", "friendlyShutdownText")]
+[node name="SleepReminderBetter" type="Panel" unique_id=1488614189 node_paths=PackedStringArray("buttonGood", "buttonGreat", "buttonBad", "finish", "friendlySleepTimeText", "friendlyShutdownText")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -14,13 +14,11 @@ script = ExtResource("2_v81nv")
 buttonGood = NodePath("VBoxContainer/HBoxContainer/Good")
 buttonGreat = NodePath("VBoxContainer/HBoxContainer/Great")
 buttonBad = NodePath("VBoxContainer/HBoxContainer/Bad")
-finish = NodePath("Done")
-sleepTime = NodePath("VBoxContainer/VBoxContainer/Time")
-minsBeforeShutdown = NodePath("VBoxContainer/VBoxContainer2/Time")
-friendlySleepTimeText = NodePath("VBoxContainer/VBoxContainer/Friendly Time Text")
-friendlyShutdownText = NodePath("VBoxContainer/VBoxContainer2/Friendly Time Text")
+finish = NodePath("Finish")
+friendlySleepTimeText = NodePath("VBoxContainer/VBoxContainer/Friendly Sleep Time Text")
+friendlyShutdownText = NodePath("VBoxContainer/VBoxContainer2/Friendly Shutdown Text")
 
-[node name="Done" type="Button" parent="." unique_id=2081137693]
+[node name="Finish" type="Button" parent="." unique_id=2081137693]
 custom_minimum_size = Vector2(155.275, 0)
 layout_mode = 1
 anchors_preset = 7
@@ -114,7 +112,7 @@ size_flags_vertical = 4
 text = "20:??"
 alignment = 1
 
-[node name="Friendly Time Text" type="Label" parent="VBoxContainer/VBoxContainer" unique_id=1382207552]
+[node name="Friendly Sleep Time Text" type="Label" parent="VBoxContainer/VBoxContainer" unique_id=1382207552]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.5529412, 0.654902, 0.627451, 1)
 text = "⏰10:?? AM"
@@ -138,7 +136,7 @@ max_value = 120.0
 alignment = 1
 suffix = "mins"
 
-[node name="Friendly Time Text" type="Label" parent="VBoxContainer/VBoxContainer2" unique_id=659732685]
+[node name="Friendly Shutdown Text" type="Label" parent="VBoxContainer/VBoxContainer2" unique_id=659732685]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.5529412, 0.654902, 0.627451, 1)
 text = "Shut down at:⏰10:?? AM"

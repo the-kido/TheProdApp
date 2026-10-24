@@ -6,10 +6,7 @@ public partial class SleepReminderBetter : Panel
 {
 	[Export] Button buttonGood, buttonGreat, buttonBad;
 	
-	[Export] Button finish;
-	// [Export] LineEdit sleepTime;
-	// [Export] SpinBox minsBeforeShutdown;
-	[Export] Label friendlySleepTimeText, friendlyShutdownText;
+	// [Export] Button finish;
 
 	const string PLACEHOLDER_WHY_NOT = "Why not!? Are you sure?";
 	const string PLACEHOLDER_WHATCHA_DOING = "Great! What will you be doing?";
@@ -22,7 +19,7 @@ public partial class SleepReminderBetter : Panel
 	bool step1 = false; // Sleep time is set
 	bool step2 = false; // Mins b4 sleep time is set
 
-	void UpdateFinishButton() => finish.Disabled = !(step1 && step2);
+	void UpdateFinishButton() => GetNode<Button>("Finish").Disabled = !(step1 && step2);
 
 	int possibleSleepTimeTime, possibleShutDownTime;
 
@@ -58,7 +55,7 @@ public partial class SleepReminderBetter : Panel
 		// 	UpdateFinishButton();
 		// };
 
-		finish.Pressed += () =>
+		GetNode<Button>("Finish").Pressed += () =>
 		{
 			ABSOLUTE_MAX_MIN = possibleShutDownTime;
 			(GetParent() as Window).Visible = false;
@@ -66,6 +63,8 @@ public partial class SleepReminderBetter : Panel
 
 		GetNode<LineEdit>("VBoxContainer/VBoxContainer/Time").TextChanged += newString =>
         {
+			var friendlySleepTimeText = GetNode<Label>("VBoxContainer/VBoxContainer/Friendly Sleep Time Text");
+
 			// Expect format HH:mm (24-hour). Validate and ensure it's a future time today.
 			if (string.IsNullOrWhiteSpace(newString) || !MyRegex().IsMatch(newString))
 			{
@@ -98,6 +97,8 @@ public partial class SleepReminderBetter : Panel
 			step2 = true;
 			int shutDownMin = possibleSleepTimeTime - (int) newMins;
 			possibleShutDownTime = shutDownMin;
+
+			var friendlyShutdownText = GetNode<Label>("VBoxContainer/VBoxContainer2/Friendly Shutdown Text");
 
 			friendlyShutdownText.Text = step2 ? $"Shut down at {GetTimerTime(shutDownMin)}" : "Invalid shut down time";
 			UpdateFinishButton();
